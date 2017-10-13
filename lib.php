@@ -14,8 +14,6 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
-defined('MOODLE_INTERNAL') || die;
-
 /**
  * @package local_metadata
  * @author Mike Churchward <mike.churchward@poetgroup.org>
@@ -421,5 +419,22 @@ function local_metadata_extend_navigation_user_settings($navigation, $user, $use
             $contexthandler = new $contextclass();
             $contexthandler->extend_navigation_user_settings($navigation, $user, $usercontext, $course, $coursecontext);
         }
+    }
+}
+
+/**
+ * Hook function to extend the course settings navigation.
+ * Lea 2017/7
+ */
+function  local_metadata_extend_navigation_category_settings ($navigation, $coursecategorycontext) {
+    if ((get_config('metadatacontext_category', 'metadataenabled') == 1) &&
+        has_capability('moodle/category:manage', $coursecategorycontext)) {
+        $strmetadata = get_string('metadatatitle', 'metadatacontext_category');
+        $url = new \moodle_url('/local/metadata/index.php',
+            ['id' => $coursecategorycontext->instanceid, 'action' => 'categorydata', 'contextlevel' => CONTEXT_COURSECAT]);
+        $metadatanode = \navigation_node::create($strmetadata, $url, \navigation_node::NODETYPE_LEAF,
+            'metadata', 'metadata', new \pix_icon('i/settings', $strmetadata)
+        );
+        $navigation->add_node($metadatanode);
     }
 }
