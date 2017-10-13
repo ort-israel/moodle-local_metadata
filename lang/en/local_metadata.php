@@ -30,3 +30,4 @@ $string['subplugintype_metadatacontext'] = 'Data context';
 $string['subplugintype_metadatacontext_plural'] = 'Data contexts';
 $string['subplugintype_metadatafieldtype'] = 'Data field type';
 $string['subplugintype_metadatafieldtype_plural'] = 'Data field types';
+$string['image'] = 'Image';

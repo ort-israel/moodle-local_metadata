@@ -15,10 +15,10 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Metadata checkbox fieldtype plugin language file.
+ * Metadata fileupload fieldtype plugin language file.
  *
  * @package local_metadata
- * @subpackage metadatafieldtype_checkbox
+ * @subpackage metadatafieldtype_fileupload
  * @author Mike Churchward <mike.churchward@poetgroup.org>
  * @copyright 2017 onwards Mike Churchward (mike.churchward@poetgroup.org)
  * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -26,4 +26,6 @@
 
 defined('MOODLE_INTERNAL') || die;
 
-$string['pluginname'] = 'Uploadfile metadata fieldtype';
+$string['pluginname'] = 'Fileupload metadata fieldtype';
+$string['profilefileuploadoptions'] = 'Profile Default Data Options';
+$string['profiledefaultdata'] = 'Profile Default Data';
